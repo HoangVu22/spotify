@@ -2,7 +2,9 @@ import React from 'react'
 
 function ListSong() {
   return (
-    <div>ListSong</div>
+    <div className='col-span-2'>
+      2
+    </div>
   )
 }
 
