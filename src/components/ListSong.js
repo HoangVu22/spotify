@@ -13,7 +13,7 @@ function ListSong() {
           </tr>
         </thead>
         <tbody>
-          <tr className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
+        <tr className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
             <td className='text-center'>1</td>
             <td className='cursor-pointer'>Sing me to sleep</td>
             <td className='text-center'>Alan Walker</td>
