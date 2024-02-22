@@ -2,7 +2,7 @@ import React from 'react'
 
 function DetailSong() {
   return (
-    <div className='col-span-1 p-3'>
+    <div className='col-span-1 p-4'>
       <h2 className='text-cyan-500 font-bold pb-2'>Playlist</h2>
       <h2 className='text-neutral-400 text-2xl'>Fade-NCS Release</h2>
       <div className='w-[220px] m-auto mt-10'>
