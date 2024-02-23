@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Songs } from '../Context'
 
 function ListSong() {
+  const { DataSongs } = useContext(Songs)
+  console.log(DataSongs)
+
   return (
-    <div className='col-span-2'>
+    <div className='col-span-2 overflow-y-scroll'>
       <table className='table-auto w-full'>
         <thead className='text-white h-12'>
           <tr>
@@ -13,24 +17,20 @@ function ListSong() {
           </tr>
         </thead>
         <tbody>
-        <tr className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
-            <td className='text-center'>1</td>
-            <td className='cursor-pointer'>Sing me to sleep</td>
-            <td className='text-center'>Alan Walker</td>
-            <td className='text-center cursor-pointer'><i class="fa fa-download"></i></td>
-          </tr>
-          <tr className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
-            <td className='text-center'>2</td>
-            <td className='cursor-pointer'>Sing me to sleep</td>
-            <td className='text-center'>Alan Walker</td>
-            <td className='text-center cursor-pointer'><i class="fa fa-download"></i></td>
-          </tr>
-          <tr className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
-            <td className='text-center'>3</td>
-            <td className='cursor-pointer'>Sing me to sleep</td>
-            <td className='text-center'>Alan Walker</td>
-            <td className='text-center cursor-pointer'><i class="fa fa-download"></i></td>
-          </tr>
+          {
+            DataSongs.map((song, id) => (
+              <tr key={id} className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
+                <td className='text-center'>{ id + 1 }</td>
+                <td className='cursor-pointer'>{ song.name }</td>
+                <td className='text-center'>{ song.author }</td>
+                <td className='text-center cursor-pointer'>
+                  <a href={ song.url }>
+                    <i class="fa fa-download"></i>
+                  </a>
+                </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
