@@ -1,8 +1,10 @@
+import "./App.css";
 import { Songs } from './Context';
 import DetailSong from './components/DetailSong';
 import ListSong from './components/ListSong';
 import Navbar from './components/Navbar';
-import DataSongs from './data/songs.json'
+import Playing from './components/Playing';
+import DataSongs from './data/songs.json';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
           <DetailSong />
           <ListSong />
         </div>
+        <Playing />
       </Songs.Provider>
     </div>
   );
