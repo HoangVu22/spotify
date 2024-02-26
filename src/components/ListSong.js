@@ -1,9 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Songs } from '../Context'
 
 function ListSong() {
-  const { DataSongs } = useContext(Songs)
-  console.log(DataSongs)
+  const { DataSongs, handleSetSong, song } = useContext(Songs)
+
+  const [idSong, setIdSong] = useState(0)
+  const handlePlaySong = (idSong) => {
+    setIdSong(idSong)
+    handleSetSong(idSong)
+  }
+
+  // mỗi khi mà song thay đổi thì cập nhật lại cái id 
+  useEffect(() => {
+    setIdSong(song.id)
+  }, [song])
 
   return (
     <div className='col-span-2 overflow-y-scroll'>
@@ -19,7 +29,11 @@ function ListSong() {
         <tbody>
           {
             DataSongs.map((song, id) => (
-              <tr key={id} className='bg-slate-800 h-12 text-gray-400 hover:bg-slate-600'>
+              <tr
+                key={id}
+                className={`bg-slate-800 h-12 text-gray-400 hover:bg-slate-600 ${idSong === song.id && 'bg-slate-600 text-teal-400'}`}
+                onClick={() => handlePlaySong(song.id)}
+              >
                 <td className='text-center'>{ id + 1 }</td>
                 <td className='cursor-pointer'>{ song.name }</td>
                 <td className='text-center'>{ song.author }</td>
